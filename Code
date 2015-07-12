@@ -1,0 +1,29 @@
+using UnityEngine;
+using System.Collections;
+
+public class PlatformFall : MonoBehaviour {
+
+	int timer = 2;
+	bool isOnBlock = true;
+	bool active = true;
+
+		void OnCollisionEnter()
+	{
+		active = true;
+		isOnBlock = true;
+	}
+
+
+	void OnCollisionExit()
+	{
+		isOnBlock = false;
+	}
+	function Update ()
+	{
+		if (active == true) && (isOnBlock == true)
+		{
+			yeald WaitForSeconds(2);
+			GetComponent<Rigidbody> ().useGravity = true;
+		}
+	}
+}
